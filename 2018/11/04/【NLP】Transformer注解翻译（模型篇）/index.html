@@ -353,6 +353,10 @@ $$</p>
                 <!-- Pager -->
                 <ul class="pager">
                     
+                        <li class="previous">
+                            <a href="/2018/11/04/共指消解论文-ACL2018/" data-toggle="tooltip" data-placement="top" title="Neural Coreference Resolution with Deep Biaffine Attention by Joint Mention Detection and Mention Clustering">&larr; Previous Post</a>
+                        </li>
+                    
                     
                         <li class="next">
                             <a href="/2018/10/09/升级Mojave后iterm2打开变慢/" data-toggle="tooltip" data-placement="top" title="【Mac】升级Mojave后iterm2打开变慢">Next Post &rarr;</a>
@@ -493,7 +497,7 @@ $$</p>
 
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; zyzhao 2018 
+                    Copyright &copy; zyzhao 2019 
                     <br>
                     <!-- Theme by <a href="http://huangxuan.me">Hux</a> 
                     <span style="display: inline-block; margin: 0 5px;">
@@ -593,6 +597,23 @@ $$</p>
 <!-- Image to hack wechat -->
 <img src="https://www.steamedfish.cn/img/icon_wechat.png" width="0" height="0" />
 <!-- Migrate from head to bottom, no longer block render and still work -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!--<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 </body>
 
