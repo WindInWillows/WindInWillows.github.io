@@ -14,7 +14,7 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          Neural Coreference Resolution with Deep Biaffine Attention by Joint Mention Detection and Mention Clustering - SteamedFish | 博客
+          ACL2018论文阅读 (一) - SteamedFish | 博客
         
     </title>
 
@@ -91,7 +91,7 @@
                               <a class="tag" href="/tags/#NLP" title="NLP">NLP</a>
                             
                         </div>
-                        <h1>Neural Coreference Resolution with Deep Biaffine Attention by Joint Mention Detection and Mention Clustering</h1>
+                        <h1>ACL2018论文阅读 (一)</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by zyzhao on
@@ -212,24 +212,28 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1><span id="acl2018">ACL2018</span></h1>
-<p>【论文题目】Neural Coreference Resolution with Deep Biaffine Attention by Joint Mention Detection and Mention Clustering</p>
-<p>论文作者及机构：Rui Zhang, Cicero Nogueira dos Santos, Michihiro Yasunaga, Bing Xiang, Dragomir Radev. From Yale &amp; IBM.</p>
-<h3><span id="论文阅读笔记">论文阅读笔记：</span></h3>
+                <h1><span id="acl2018论文阅读-一">ACL2018论文阅读 (一)</span></h1>
+<h2><span id="论文题目">论文题目</span></h2>
+<p><strong>Neural Coreference Resolution with Deep Biaffine Attention by Joint Mention Detection and Mention Clustering</strong></p>
+<h2><span id="论文作者及机构">论文作者及机构</span></h2>
+<p><strong>Rui Zhang, Cicero Nogueira dos Santos, Michihiro Yasunaga, Bing Xiang, Dragomir Radev. From Yale &amp; IBM.</strong></p>
+<h2><span id="论文阅读笔记">论文阅读笔记</span></h2>
 <ul>
 <li>
-<p>主要研究的方向：Coreference Resolution</p>
+<h3><span id="主要研究的方向">主要研究的方向</span></h3>
+<p>Coreference Resolution</p>
 </li>
 <li>
-<p>Motivation：传统的共指消解方法一般包括基于规则的和基于ML的，这两种方法一般都是采用pipeline的方式，分两步来完成共指消解任务：首先是metion detect (指称检测，A <em>mention</em> is a reference to something or someone)，这一步提取出待消解的实体mentions；第二步是对提取出的mentions进行聚类，同一类别的mentions即可消解为同一个实体。</p>
+<h3><span id="motivation">Motivation</span></h3>
+<p>传统的共指消解方法一般包括基于规则的和基于ML的，这两种方法一般都是采用pipeline的方式，分两步来完成共指消解任务：首先是metion detect (指称检测，A <em>mention</em> is a reference to something or someone)，这一步提取出待消解的实体mentions；第二步是对提取出的mentions进行聚类，同一类别的mentions即可消解为同一个实体。</p>
 <p>但是，pipeline的共指消解方法会导致级联错误，并且每步都需要手动构建复杂的特征。</p>
 </li>
 <li>
-<p>该方向上目前存在的问题：</p>
+<h3><span id="该方向上目前存在的问题">该方向上目前存在的问题</span></h3>
 <p>基于pipeline的共指消解方法都需要依靠人工经验去构造大量的复杂的特征，这样对新数据集的、新的语言适应性就会很不友好。此外，pipeline的方法还会导致级联错误。</p>
 </li>
 <li>
-<p>相关的工作有哪些：</p>
+<h3><span id="相关的工作有哪些">相关的工作有哪些</span></h3>
 <ol>
 <li>rule- based (Haghighi and Klein, 2009; Lee et al., 2011)，使用规则的方法，通过构造大量的复杂启发式规则，使用pipeline的方式进行共指检测和消解。</li>
 <li>learning-based (Bengtson and Roth, 2008; Fer- nandes et al., 2012; Durrett and Klein, 2013; Bjo ̈rkelund and Kuhn, 2014)，使用机器学习的方法，通过人工构造大量特征，使用pipeline的方法进行共指检测消解。</li>
@@ -237,7 +241,7 @@
 </ol>
 </li>
 <li>
-<p>本文方法是什么：</p>
+<h3><span id="本文方法是什么">本文方法是什么</span></h3>
 <p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1g177kt3rcxj31hw0n6452.jpg" alt="image-20190318201401328"></p>
 <p>本文提出的端到端的模型结构如图一所示。文中端到端的共指消解分为了以下几个步骤：</p>
 <ul>
@@ -266,7 +270,7 @@ $$</p>
 </ul>
 </li>
 </ul>
-<pre><code>这里的FFNN都是前馈神经网络，输出是一个向量。接下来吧span的表示向量$$s_i$$记为：
+<pre><code>这里的FFNN都是前馈神经网络，输出是一个向量。接下来吧span的表示向量$$s_i​$$记为：
 $$
 {s_i} = [{h}_{START(i)}, {h}_{END(i)}, {w}_i^{head-att}, \phi(i)]
 $$
@@ -291,7 +295,7 @@ c(i,j) = \hat{s_i}U_{bi}\hat{s_j} + v_{bi}^T\hat{s_i}<br>
 $$</p>
 </li>
 </ul>
-<pre><code>使用Biaffine attention对候选先行语进行打分，得到最终的匹配分数c(i, j)。其中$$\hat{s_i}​$$和$$\hat{s_j}​$$分别是西先行语和指代词的表示s过了MLP后新的向量表示，其中通过中$$\hat{s_i}U_{bi}\hat{s_j}​$$ 来计算相似度，通过$$v_{bi}^T\hat{s_i}​$$ 来表示$$span_i​$$ 有先行语的先验似然。
+<pre><code>使用Biaffine attention对候选先行语进行打分，得到最终的匹配分数c(i, j)。其中$$\hat{s_i}$$和$$\hat{s_j}$$分别是先行语和指代词的表示s过了MLP后新的向量表示，其中通过中$$\hat{s_i}U_{bi}\hat{s_j}$$ 来计算相似度，通过$$v_{bi}^T\hat{s_i}$$ 来表示$$span_i$$ 有先行语的先验似然。
 </code></pre>
 <ul>
 <li>
@@ -302,40 +306,42 @@ $$<br>
 最后只需要从s(i, j)中选出得分最高的一个证书分数的先行语即可。</p>
 </li>
 <li>
-<p><strong>Joint loss:</strong> 最终的loss是detect和cluster两步的joint loss，其中cluster的loss为<br>
+<p><strong>Joint loss:</strong></p>
+<p>最终的loss是detect和cluster两步的joint loss，其中cluster的loss为<br>
 $$<br>
-\mathcal{L}<em>{cluster}(i) = log \frac{\sum</em>{j’ \in GOLD(i)} exp(s(i, j’))}{\sum_{j=\epsilon,0,1,…,i-1} exp(s(i,j))}<br>
+{L}<em>{cluster}(i) = log \frac{\sum</em>{j’ \in GOLD(i)} exp(s(i, j’))}{\sum_{j=\epsilon,0,1,…,i-1} exp(s(i,j))}<br>
 $$<br>
 detect的loss为<br>
 $$<br>
-\mathcal{L}<em>{detect}(i) = y_ilog \hat{y_i}+(1-y_i)log(1-\hat{y_i})<br>
+{L}<em>{detect}(i) = y_ilog \hat{y_i}+(1-y_i)log(1-\hat{y_i})<br>
 $$<br>
 联合loss为<br>
 $$<br>
-\mathcal{L}</em>{loss} = -\lambda_{detect} \sum_{i=1}^{N} \mathcal{L}<em>{detect}(i) - \sum</em>{j=1}^{M} \mathcal{L}_{cluster}(j)<br>
+{L}</em>{loss} = -\lambda_{detect} \sum_{i=1}^{N} {L}<em>{detect}(i) - \sum</em>{j=1}^{M} {L}_{cluster}(j)<br>
 $$</p>
 </li>
 </ul>
 <ul>
 <li>
-<p>有什么创新点：</p>
+<h3><span id="创新点">创新点</span></h3>
 <ul>
 <li>使用joint learning的方法减少了传统pipeline方法所产生的级联错误。</li>
 <li>将biaffine attention加入到指代词和先行语匹配的过程中，提高了模型的表达能力。</li>
 </ul>
 </li>
 <li>
-<p>如何解决motivation中提出的问题：</p>
+<h3><span id="如何解决motivation中提出的问题">如何解决motivation中提出的问题</span></h3>
 <ul>
 <li>通过使用joint task的框架，将mention detect和mention cluster做成了端到端的任务，通过joint loss来优化同时优化两个任务，避免了pipeline方式的级联的误差。</li>
 <li>在匹配当前span和候选先行语的过程中使用了Biaffine Attention，提升了模型的表达能力。</li>
 </ul>
 </li>
 <li>
-<p>取得什么样的效果：在CoNLL-2012 英文数据集(Based on Ontonotes)上达到了SOTA的效果：单模型F1 67.8% F1，多模型ensemble F1 69.2%。</p>
+<h3><span id="取得什么样的效果">取得什么样的效果</span></h3>
+<p>在CoNLL-2012 英文数据集(Based on Ontonotes)上达到了SOTA的效果：单模型F1 67.8% F1，多模型ensemble F1 69.2%。</p>
 </li>
 <li>
-<p>对文章的点评：</p>
+<h3><span id="对文章的点评">对文章的点评</span></h3>
 <ul>
 <li>
 <p>优点：</p>
@@ -389,7 +395,7 @@ $$</p>
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">ACL2018</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.0.1.</span> <span class="toc-nav-text">论文阅读笔记：</span></a></li></ol></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">ACL2018论文阅读 (一)</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">论文题目</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">论文作者及机构</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">论文阅读笔记</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.1.</span> <span class="toc-nav-text">主要研究的方向</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.2.</span> <span class="toc-nav-text">Motivation</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.3.</span> <span class="toc-nav-text">该方向上目前存在的问题</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.4.</span> <span class="toc-nav-text">相关的工作有哪些</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.5.</span> <span class="toc-nav-text">本文方法是什么</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.6.</span> <span class="toc-nav-text">创新点</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.7.</span> <span class="toc-nav-text">如何解决motivation中提出的问题</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.8.</span> <span class="toc-nav-text">取得什么样的效果</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.9.</span> <span class="toc-nav-text">对文章的点评</span></a></li></ol></li></ol></li></ol>
         
         </div>
       </aside>
