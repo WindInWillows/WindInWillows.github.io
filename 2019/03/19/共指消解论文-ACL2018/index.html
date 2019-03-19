@@ -142,14 +142,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -212,61 +212,146 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>【论文题目】Neural Coreference Resolution with Deep Biaffine Attention by Joint Mention Detection and Mention Clustering</p>
+                <h1><span id="acl2018">ACL2018</span></h1>
+<p>【论文题目】Neural Coreference Resolution with Deep Biaffine Attention by Joint Mention Detection and Mention Clustering</p>
 <p>论文作者及机构：Rui Zhang, Cicero Nogueira dos Santos, Michihiro Yasunaga, Bing Xiang, Dragomir Radev. From Yale &amp; IBM.</p>
-<h3><span id="论文阅读笔记">论文阅读笔记：</span></h3><ul>
-<li><p>主要研究的方向：Coreference Resolution</p>
+<h3><span id="论文阅读笔记">论文阅读笔记：</span></h3>
+<ul>
+<li>
+<p>主要研究的方向：Coreference Resolution</p>
 </li>
-<li><p>Motivation：pipeline的共指消解方法会导致级联错误，并且每步都需要手动构建复杂的特征。</p>
+<li>
+<p>Motivation：传统的共指消解方法一般包括基于规则的和基于ML的，这两种方法一般都是采用pipeline的方式，分两步来完成共指消解任务：首先是metion detect (指称检测，A <em>mention</em> is a reference to something or someone)，这一步提取出待消解的实体mentions；第二步是对提取出的mentions进行聚类，同一类别的mentions即可消解为同一个实体。</p>
+<p>但是，pipeline的共指消解方法会导致级联错误，并且每步都需要手动构建复杂的特征。</p>
 </li>
-<li><p>该方向上目前存在的问题：传统的共指消解方法一般包括基于规则的和基于ML的，这两种方法一般都是采用pipeline的方式，分两步来完成共指消解任务：首先是metion detect (指称检测，A <em>mention</em> is a reference to something or someone)，这一步提取出待消解的实体mentions；第二步是对提取出的mentions进行聚类，同一类别的mentions即可消解为同一个实体。</p>
-<p>但是，上述两种方法都需要依靠人工经验去构造大量的复杂的特征，这样对新数据集的、新的语言适应性就会很不友好。此外，pipeline的方法还会导致级联错误。</p>
+<li>
+<p>该方向上目前存在的问题：</p>
+<p>基于pipeline的共指消解方法都需要依靠人工经验去构造大量的复杂的特征，这样对新数据集的、新的语言适应性就会很不友好。此外，pipeline的方法还会导致级联错误。</p>
 </li>
-<li><p>相关的工作有哪些：</p>
+<li>
+<p>相关的工作有哪些：</p>
 <ol>
 <li>rule- based (Haghighi and Klein, 2009; Lee et al., 2011)，使用规则的方法，通过构造大量的复杂启发式规则，使用pipeline的方式进行共指检测和消解。</li>
 <li>learning-based (Bengtson and Roth, 2008; Fer- nandes et al., 2012; Durrett and Klein, 2013; Bjo ̈rkelund and Kuhn, 2014)，使用机器学习的方法，通过人工构造大量特征，使用pipeline的方法进行共指检测消解。</li>
 <li>end-to-end neural system (Lee et al., 2017) ，文中考虑所有的窗口文本作为候选的mention，使用端到端的神经网络的方法，消除了传统方法需要人工标注的弊端。</li>
 </ol>
 </li>
-<li><p>本文方法是什么：</p>
+<li>
+<p>本文方法是什么：</p>
 <p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1g177kt3rcxj31hw0n6452.jpg" alt="image-20190318201401328"></p>
 <p>本文提出的端到端的模型结构如图一所示。文中端到端的共指消解分为了以下几个步骤：</p>
 <ul>
-<li><p>Span Representation：模型首先需要考虑的是如何对每个span进行表示，首先使用BiLSTM对句子进行编码 </p>
-<script type="math/tex; mode=display">
-h^{\rightarrow}_t = LSTM^{forward}(h_{t-1}, w_t)</script><script type="math/tex; mode=display">
-h^{\leftarrow}_t = LSTM^{backward}(h_{t-1}, w_t)</script><script type="math/tex; mode=display">
-h_t = [h^{\rightarrow}_t, h^{\leftarrow_t}]</script><p>然后使用head-finding Attention计算不同的词在span中的权重</p>
-<script type="math/tex; mode=display">
-\alpha_t = \bold{v}_\alpha^TFFNN_\alpha(\bold{h}_t)</script><p>这里的FFNN都是前馈神经网络，输出是一个向量。接下来吧span的表示向量<script type="math/tex">s_i​</script>记为：</p>
-<script type="math/tex; mode=display">
-\bold{s_i} = [\bold{h}_{START(i)}, \bold{h}_{END(i)}, \bold{w}_i^{head-att}, \phi(i)]</script></li>
-<li><p>Mention Scoring: 得到<script type="math/tex">span_i​</script>的向量表示<script type="math/tex">s_i​</script>后，我们可以使用</p>
+<li>
+<p>**Span Representation：**模型首先需要考虑的是如何对每个span进行表示，首先使用BiLSTM对句子进行编码<br>
+$$<br>
+h^{\rightarrow}<em>t = LSTM^{forward}(h</em>{t-1}, w_t)<br>
+$$</p>
+<p>$$<br>
+h^{\leftarrow}<em>t = LSTM^{backward}(h</em>{t-1}, w_t)<br>
+$$</p>
+<p>$$<br>
+h_t = [h^{\rightarrow}_t, h^{\leftarrow}_t]<br>
+$$</p>
+<p>然后使用head-finding Attention计算不同的词在span中的权重<br>
+$$<br>
+\alpha_t = {v}<em>\alpha^TFFNN</em>\alpha({h}<em>t)<br>
+$$<br>
+$$<br>
+s</em>{i, t} = \frac{exp(\alpha_t)}{\sum_{k=START(i)}^{END(i)} exp(\alpha_k)}<br>
+$$</p>
+<p>$$<br>
+w_i^{head_att} = \sum_{t=START(i)}^{END(i)}s_{i, t}w_t<br>
+$$</p>
 </li>
 </ul>
 </li>
-<li><p>有什么创新点：</p>
+</ul>
+<pre><code>这里的FFNN都是前馈神经网络，输出是一个向量。接下来吧span的表示向量$$s_i$$记为：
+$$
+{s_i} = [{h}_{START(i)}, {h}_{END(i)}, {w}_i^{head-att}, \phi(i)]
+$$
+</code></pre>
+<ul>
+<li>
+<p><strong>Mention Scoring:</strong> 得到$$span_i$$的向量表示$$s_i$$后，使用MLP对$$s_i$$进行打分，得到其是否为一个有效mention的分数m(i)。<br>
+$$<br>
+m(i) = v_m^TFFNN_m(s_i)<br>
+$$</p>
+</li>
+<li>
+<p><strong>Biaffine Attention Antecedent Scoring：</strong><br>
+$$<br>
+\hat{s_i} = FFNN_{anaphora(s_i)}<br>
+$$</p>
+<p>$$<br>
+\hat{s_j} = FFNN_{antecedent}(s_j), 1\le j \le i-1<br>
+$$</p>
+<p>$$<br>
+c(i,j) = \hat{s_i}U_{bi}\hat{s_j} + v_{bi}^T\hat{s_i}<br>
+$$</p>
+</li>
+</ul>
+<pre><code>使用Biaffine attention对候选先行语进行打分，得到最终的匹配分数c(i, j)。其中$$\hat{s_i}​$$和$$\hat{s_j}​$$分别是西先行语和指代词的表示s过了MLP后新的向量表示，其中通过中$$\hat{s_i}U_{bi}\hat{s_j}​$$ 来计算相似度，通过$$v_{bi}^T\hat{s_i}​$$ 来表示$$span_i​$$ 有先行语的先验似然。
+</code></pre>
+<ul>
+<li>
+<p><strong>Inference:</strong> 最终的得分如下所示<br>
+$$<br>
+s(i, j) = \lbrace_{0, j = \epsilon}^{m(i)+m(j)+c(i,j), j \ne \epsilon}<br>
+$$<br>
+最后只需要从s(i, j)中选出得分最高的一个证书分数的先行语即可。</p>
+</li>
+<li>
+<p><strong>Joint loss:</strong> 最终的loss是detect和cluster两步的joint loss，其中cluster的loss为<br>
+$$<br>
+\mathcal{L}<em>{cluster}(i) = log \frac{\sum</em>{j’ \in GOLD(i)} exp(s(i, j’))}{\sum_{j=\epsilon,0,1,…,i-1} exp(s(i,j))}<br>
+$$<br>
+detect的loss为<br>
+$$<br>
+\mathcal{L}<em>{detect}(i) = y_ilog \hat{y_i}+(1-y_i)log(1-\hat{y_i})<br>
+$$<br>
+联合loss为<br>
+$$<br>
+\mathcal{L}</em>{loss} = -\lambda_{detect} \sum_{i=1}^{N} \mathcal{L}<em>{detect}(i) - \sum</em>{j=1}^{M} \mathcal{L}_{cluster}(j)<br>
+$$</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>有什么创新点：</p>
 <ul>
 <li>使用joint learning的方法减少了传统pipeline方法所产生的级联错误。</li>
-<li></li>
+<li>将biaffine attention加入到指代词和先行语匹配的过程中，提高了模型的表达能力。</li>
 </ul>
 </li>
-<li><p>如何解决motivation中提出的问题：</p>
+<li>
+<p>如何解决motivation中提出的问题：</p>
+<ul>
+<li>通过使用joint task的框架，将mention detect和mention cluster做成了端到端的任务，通过joint loss来优化同时优化两个任务，避免了pipeline方式的级联的误差。</li>
+<li>在匹配当前span和候选先行语的过程中使用了Biaffine Attention，提升了模型的表达能力。</li>
+</ul>
 </li>
-<li><p>取得什么样的效果：在CoNLL-2012 英文数据集(Based on Ontonotes)上达到了SOTA的效果：单模型F1 67.8% F1，多模型ensemble F1 69.2%。</p>
+<li>
+<p>取得什么样的效果：在CoNLL-2012 英文数据集(Based on Ontonotes)上达到了SOTA的效果：单模型F1 67.8% F1，多模型ensemble F1 69.2%。</p>
 </li>
-<li><p>对文章的点评：</p>
+<li>
+<p>对文章的点评：</p>
+<ul>
+<li>
 <p>优点：</p>
 <ol>
 <li>文章整体结构简洁清除，引用关系也比较清晰</li>
 <li>结果是SOTA的</li>
 </ol>
+</li>
+<li>
 <p>描述不清的部分：</p>
 <ol>
-<li>Model部分有些描述不是很清晰，Span Representation里没有</li>
+<li>Model部分有些描述不是很清晰，没有解释清楚为什么Biaffine Attention对模型会有提升。</li>
 <li>任务定义没有描述清楚怎么产生新的候选先行语，因为根据定义，第i个span要么指向第0~(i-1)个先行语，要么就是dummy antecedent，不具备生成新antecedent的条件。</li>
 </ol>
+</li>
+</ul>
 </li>
 </ul>
 
@@ -304,7 +389,7 @@ h_t = [h^{\rightarrow}_t, h^{\leftarrow_t}]</script><p>然后使用head-finding 
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">论文阅读笔记：</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">ACL2018</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.0.1.</span> <span class="toc-nav-text">论文阅读笔记：</span></a></li></ol></li></ol></li></ol>
         
         </div>
       </aside>
