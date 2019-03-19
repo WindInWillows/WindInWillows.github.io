@@ -210,21 +210,14 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h2><span id="前言">前言</span></h2>
-<p>近年来，人机对话技术受到了学术界和产业界的广泛关注。学术上，人机对话是人机交互最自然的方式之一，其发展影响及推动着语音识别与合成、自然语言理解、对话管理以及自然语言生成等研究的进展；产业上，众多产业界巨头相继推出了人机对话技术相关产品，如个人事务助理、虚拟情感陪护机器人、娱乐型聊天机器人等等，并将人机对话技术作为其公司的重点研发方向。以上需求极大地推动了人机对话技术在学术界和产业界的发展。</p>
+                <h2><span id="前言">前言</span></h2><p>近年来，人机对话技术受到了学术界和产业界的广泛关注。学术上，人机对话是人机交互最自然的方式之一，其发展影响及推动着语音识别与合成、自然语言理解、对话管理以及自然语言生成等研究的进展；产业上，众多产业界巨头相继推出了人机对话技术相关产品，如个人事务助理、虚拟情感陪护机器人、娱乐型聊天机器人等等，并将人机对话技术作为其公司的重点研发方向。以上需求极大地推动了人机对话技术在学术界和产业界的发展。</p>
 <p>在8 月 4 日落幕的第七届全国社会媒体处理大会（SMP2018）中我们举行了<strong>第二届中文人机对话技术评测</strong>（The Second Evaluation of Chinese Human-Computer Dialogue Technology，SMP-ECDT）的颁奖仪式及技术报告论坛，经过近四个月的角逐，评测已经完美落下帷幕，各参赛队伍都取得了很不错的成绩，具体评测成绩可参见本文末尾提供的链接。</p>
-<p>SMP2018-ECDT 从 2018 年 4 月 1 日启动，历经近四个月的赛程，最终吸引了 80 支队伍共 248 位参赛者报名，值得一提的是，来自工业界的队伍比重相比去年有所增加。由于参赛队伍热情较高，评测结束后仍有许多队伍询问评测任务一的一些问题，所以我们将SMP2018-ECDT的<strong>用户意图领域分类任务</strong>（任务一）以刷榜评测的形式再次发布。经过一段时间的准备，我们将评测任务一迁移到了CodaLab平台，所有人都可以很方便地获取任务一数据集和评测脚本，并提交测试集上的运行请求，同时可以将您的成绩展示在评测榜单上。ECDT期待您的参与！</p>
-<h2><span id="评测任务说明">评测任务说明</span></h2>
-<h5><span id="用户意图领域分类">【用户意图领域分类】</span></h5>
-<p>在人机对话系统的应用过程中，用户可能会有多种意图，相应地会触发人机对话系统中的多个领域（domain） ，其中包括任务型垂直领域（如查询机票、酒店、公交车等）、知识型问答以及闲聊等。因而，人机对话系统的一个关键任务就是正确地将用户的输入分类到相应的领域（domain）中，从而返回正确的回复结果。</p>
-<h5><span id="用户意图领域分类示例">【用户意图领域分类示例】</span></h5>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1）  你好啊，很高兴见到你！ — 闲聊类</span><br><span class="line"></span><br><span class="line">2）  我想订一张去北京的机票。 — 任务型垂类（订机票）</span><br><span class="line"></span><br><span class="line">3）  我想找一家五道口附近便宜干净的快捷酒店 — 任务型垂类（订酒店）</span><br></pre></td></tr></table></figure>
-<h5><span id="评测说明">【评测说明】</span></h5>
-<p>刷榜评测数据标签包含闲聊和垂类两大类，其中垂类又细分为30个垂直领域，评测数据共计31个类别。本次评测任务中，仅考虑针对单轮对话用户意图的领域分类，多轮对话整体意图的领域分类不在此次评测范围之内。为了保证刷榜评测的公平性，我们仍不会公开测试集。</p>
-<h5><span id="评测方式">【评测方式】</span></h5>
-<p>为了保证比赛的公平性和刷榜评测的可操作性，我们使用了CodaLab在线评测平台，并将评测的相关数据放在了此平台上，如果您想参加评测并进行刷榜角逐，则需要在此平台上进行，请点击文末的<strong>阅读原文</strong>参加评测或了解详情。</p>
-<h5><span id="评价指标">【评价指标】</span></h5>
-<p>精准率（P）、召回率（R）及F值。P、R以及F的计算方法如下：</p>
+<p> SMP2018-ECDT 从 2018 年 4 月 1 日启动，历经近四个月的赛程，最终吸引了 80 支队伍共 248 位参赛者报名，值得一提的是，来自工业界的队伍比重相比去年有所增加。由于参赛队伍热情较高，评测结束后仍有许多队伍询问评测任务一的一些问题，所以我们将SMP2018-ECDT的<strong>用户意图领域分类任务</strong>（任务一）以刷榜评测的形式再次发布。经过一段时间的准备，我们将评测任务一迁移到了CodaLab平台，所有人都可以很方便地获取任务一数据集和评测脚本，并提交测试集上的运行请求，同时可以将您的成绩展示在评测榜单上。ECDT期待您的参与！</p>
+<h2><span id="评测任务说明">评测任务说明</span></h2><h5><span id="用户意图领域分类">【用户意图领域分类】</span></h5><p>在人机对话系统的应用过程中，用户可能会有多种意图，相应地会触发人机对话系统中的多个领域（domain） ，其中包括任务型垂直领域（如查询机票、酒店、公交车等）、知识型问答以及闲聊等。因而，人机对话系统的一个关键任务就是正确地将用户的输入分类到相应的领域（domain）中，从而返回正确的回复结果。</p>
+<h5><span id="用户意图领域分类示例">【用户意图领域分类示例】</span></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1）  你好啊，很高兴见到你！ — 闲聊类</span><br><span class="line"></span><br><span class="line">2）  我想订一张去北京的机票。 — 任务型垂类（订机票）</span><br><span class="line"></span><br><span class="line">3）  我想找一家五道口附近便宜干净的快捷酒店 — 任务型垂类（订酒店）</span><br></pre></td></tr></table></figure>
+<h5><span id="评测说明">【评测说明】</span></h5><p>刷榜评测数据标签包含闲聊和垂类两大类，其中垂类又细分为30个垂直领域，评测数据共计31个类别。本次评测任务中，仅考虑针对单轮对话用户意图的领域分类，多轮对话整体意图的领域分类不在此次评测范围之内。为了保证刷榜评测的公平性，我们仍不会公开测试集。</p>
+<h5><span id="评测方式">【评测方式】</span></h5><p>为了保证比赛的公平性和刷榜评测的可操作性，我们使用了CodaLab在线评测平台，并将评测的相关数据放在了此平台上，如果您想参加评测并进行刷榜角逐，则需要在此平台上进行，请点击文末的<strong>阅读原文</strong>参加评测或了解详情。</p>
+<h5><span id="评价指标">【评价指标】</span></h5><p>精准率（P）、召回率（R）及F值。P、R以及F的计算方法如下：</p>
 <blockquote>
 <p>构建31*31的confuse矩阵，值为判断把x类别判断为y类别的个数；</p>
 <p>各类别的Precision = 该类别预测正确样例数/所有预测为该类别的样例数；</p>
@@ -232,8 +225,7 @@
 <p>各类别的F1-score = 2*R*P/(R+P)；</p>
 <p>最后取各类别F值的平均值；</p>
 </blockquote>
-<h3><span id="附相关链接">附：相关链接</span></h3>
-<p>CodaLab评测主页：<a href="https://worksheets.codalab.org/worksheets/0x27203f932f8341b79841d50ce0fd684f/" target="_blank" rel="noopener">https://worksheets.codalab.org/worksheets/0x27203f932f8341b79841d50ce0fd684f/</a></p>
+<h3><span id="附相关链接">附：相关链接</span></h3><p>CodaLab评测主页：<a href="https://worksheets.codalab.org/worksheets/0x27203f932f8341b79841d50ce0fd684f/" target="_blank" rel="noopener">https://worksheets.codalab.org/worksheets/0x27203f932f8341b79841d50ce0fd684f/</a></p>
 <p>CodaLab评测教程：<a href="https://worksheets.codalab.org/worksheets/0x1a7d7d33243c476984ff3d151c4977d4/" target="_blank" rel="noopener">https://worksheets.codalab.org/worksheets/0x1a7d7d33243c476984ff3d151c4977d4/</a></p>
 <p>评测排行榜：<a href="https://smp2018ecdt.github.io/Leader-board/" target="_blank" rel="noopener">https://smp2018ecdt.github.io/Leader-board/</a></p>
 <p>SMP2018-ECDT评测主页：<a href="http://smp2018.cips-smp.org/ecdt_index.html" target="_blank" rel="noopener">http://smp2018.cips-smp.org/ecdt_index.html</a></p>

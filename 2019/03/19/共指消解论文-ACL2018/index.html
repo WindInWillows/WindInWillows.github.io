@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          [Hexo] Theme BeanTech - SteamedFish | 博客
+          Neural Coreference Resolution with Deep Biaffine Attention by Joint Mention Detection and Mention Clustering - SteamedFish | 博客
         
     </title>
 
-    <link rel="canonical" href="https://www.steamedfish.cn/2018/09/26/hexo-theme-beantech/">
+    <link rel="canonical" href="https://www.steamedfish.cn/2019/03/19/共指消解论文-ACL2018/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -86,16 +86,16 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#Hexo" title="Hexo">Hexo</a>
+                              <a class="tag" href="/tags/#Coreference Resolution" title="Coreference Resolution">Coreference Resolution</a>
                             
-                              <a class="tag" href="/tags/#Blog" title="Blog">Blog</a>
+                              <a class="tag" href="/tags/#NLP" title="NLP">NLP</a>
                             
                         </div>
-                        <h1>[Hexo] Theme BeanTech</h1>
-                        <h2 class="subheading">This is hexo theme Demo.</h2>
+                        <h1>Neural Coreference Resolution with Deep Biaffine Attention by Joint Mention Detection and Mention Clustering</h1>
+                        <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by zyzhao on
-                            2018-09-26
+                            2019-03-19
                         </span>
                     </div>
                 
@@ -212,36 +212,63 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <blockquote>
-<p>Ported Theme of <a href="https://github.com/Huxpro/huxpro.github.io" target="_blank" rel="noopener">Hux Blog</a>, Thank <a href="https://github.com/Huxpro" target="_blank" rel="noopener">Huxpro</a> for designing such a flawless theme.</p>
-<p>This BeanTech theme created by <a href="http://beantech.org" target="_blank" rel="noopener">YuHsuan</a> modified from the original Porter <a href="http://kaijun.rocks/hexo-theme-huxblog/" target="_blank" rel="noopener">Kaijun</a></p>
-</blockquote>
-<h1><span id="live-demo"></span></h1><hr>
-<p><img src="http://beantech.org/img/beantech-desktop.png" alt="BeanTech Desktop"></p>
-<h1><span id="usage">Usage</span></h1><hr>
-<p>I publish the whole project for your convenience, so you can just follow the instruction down below, then you can easily customiz your own blog!</p>
-<p>Let’s begin!!!</p>
-<h2><span id="init">Init</span></h2><hr>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/YenYuHsuan/hexo-theme-beantech.git ./hexo-beantech</span><br><span class="line"><span class="built_in">cd</span> hexo-beantech</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
-<h2><span id="modify">Modify</span></h2><hr>
-<p>Modify <code>_config.yml</code> file with your own info.<br>Especially the section:</p>
-<h3><span id="deployment">Deployment</span></h3><p>Replace to your own repo!<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="attr">https://github.com/&lt;yourAccount&gt;/&lt;repo&gt;</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">&lt;your-branch&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h3><span id="sidebar-settings">Sidebar settings</span></h3><p>Copy your avatar image to <code>&lt;root&gt;/img/</code> and modify the <code>_config.yml</code>:<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">sidebar:</span> <span class="literal">true</span>    <span class="comment"># whether or not using Sidebar.</span></span><br><span class="line"><span class="attr">sidebar-about-description:</span> <span class="string">"&lt;your description&gt;"</span></span><br><span class="line"><span class="attr">sidebar-avatar:</span> <span class="string">img/&lt;your</span> <span class="string">avatar</span> <span class="string">path&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>and activate your personal widget you like<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">widgets:</span>         <span class="comment"># here are widget you can use, you can comment out</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">featured-tags</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">short-about</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">recent-posts</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">friends-blog</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">archive</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">category</span></span><br></pre></td></tr></table></figure></p>
-<p>if you want to add sidebar widget, please add at <code>layout/_widget</code>.</p>
-<h3><span id="signature-setup">Signature Setup</span></h3><p>Copy your signature image to <code>&lt;root&gt;/img/signature</code> and modify the <code>_config.yml</code>:<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">signature:</span> <span class="literal">true</span>   <span class="comment"># show signature</span></span><br><span class="line"><span class="attr">signature-img:</span> <span class="string">img/signature/&lt;your-signature-ID&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h3><span id="go-to-top-icon-setup">Go to top icon Setup</span></h3><p>My icon is using iron man, you can change to your own icon at <code>css/image</code>.</p>
-<h3><span id="post-tag">Post tag</span></h3><p>You can decide to show post tags or not.<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">home_posts_tag:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure></p>
-<p><img src="home_posts_tag-true.png" alt="home_posts_tag-true"><br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">home_posts_tag:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure></p>
-<p><img src="home_posts_tag-false.png" alt="home_posts_tag-false"></p>
-<h3><span id="markdown-render">Markdown render</span></h3><p>My markdown render engine plugin is <a href="https://github.com/celsomiranda/hexo-renderer-markdown-it" target="_blank" rel="noopener">hexo-renderer-markdown-it</a>.<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Markdown-it config</span></span><br><span class="line"><span class="comment">## Docs: https://github.com/celsomiranda/hexo-renderer-markdown-it/wiki</span></span><br><span class="line"><span class="attr">markdown:</span></span><br><span class="line"><span class="attr">  render:</span></span><br><span class="line"><span class="attr">    html:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">    xhtmlOut:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">    breaks:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">    linkify:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">    typographer:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">    quotes:</span> <span class="string">'“”‘’'</span></span><br></pre></td></tr></table></figure></p>
-<p>and if you want to change the header anchor ‘ℬ’, you can go to <code>layout/post.ejs</code> to change it.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span>(<span class="string">"https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        anchors.options = &#123;</span><br><span class="line">          visible: <span class="string">'hover'</span>,</span><br><span class="line">          placement: <span class="string">'left'</span>,</span><br><span class="line">          icon: ℬ <span class="comment">// this is the header anchor "unicode" icon</span></span><br><span class="line">        &#125;;</span><br></pre></td></tr></table></figure></p>
-<h2><span id="hexo-basics">Hexo Basics</span></h2><hr>
-<p>Some hexo command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo new post <span class="string">"&lt;post name&gt;"</span> <span class="comment"># you can change post to another layout if you want</span></span><br><span class="line">hexo clean &amp;&amp; hexo generate <span class="comment"># generate the static file</span></span><br><span class="line">hexo server <span class="comment"># run hexo in local environment</span></span><br><span class="line">hexo deploy <span class="comment"># hexo will push the static files automatically into the specific branch(gh-pages) of your repo!</span></span><br></pre></td></tr></table></figure></p>
-<h1><span id="have-fun-_">Have fun ^_^</span></h1><hr>
-<!-- Place this tag in your head or just before your close body tag. -->
-<p><script async defer src="https://buttons.github.io/buttons.js"></script><br><!-- Place this tag where you want the button to render. --></p>
-<p>Please <a class="github-button" href="https://github.com/YenYuHsuan/hexo-theme-beantech" data-icon="octicon-star" aria-label="Star YenYuHsuan/hexo-theme-beantech on GitHub" target="_blank" rel="noopener">Star</a> this Project if you like it! <a class="github-button" href="https://github.com/YenYuHsuan" aria-label="Follow @YenYuHsuan on GitHub" target="_blank" rel="noopener">Follow</a> would also be appreciated!<br>Peace!</p>
+                <p>【论文题目】Neural Coreference Resolution with Deep Biaffine Attention by Joint Mention Detection and Mention Clustering</p>
+<p>论文作者及机构：Rui Zhang, Cicero Nogueira dos Santos, Michihiro Yasunaga, Bing Xiang, Dragomir Radev. From Yale &amp; IBM.</p>
+<h3><span id="论文阅读笔记">论文阅读笔记：</span></h3><ul>
+<li><p>主要研究的方向：Coreference Resolution</p>
+</li>
+<li><p>Motivation：pipeline的共指消解方法会导致级联错误，并且每步都需要手动构建复杂的特征。</p>
+</li>
+<li><p>该方向上目前存在的问题：传统的共指消解方法一般包括基于规则的和基于ML的，这两种方法一般都是采用pipeline的方式，分两步来完成共指消解任务：首先是metion detect (指称检测，A <em>mention</em> is a reference to something or someone)，这一步提取出待消解的实体mentions；第二步是对提取出的mentions进行聚类，同一类别的mentions即可消解为同一个实体。</p>
+<p>但是，上述两种方法都需要依靠人工经验去构造大量的复杂的特征，这样对新数据集的、新的语言适应性就会很不友好。此外，pipeline的方法还会导致级联错误。</p>
+</li>
+<li><p>相关的工作有哪些：</p>
+<ol>
+<li>rule- based (Haghighi and Klein, 2009; Lee et al., 2011)，使用规则的方法，通过构造大量的复杂启发式规则，使用pipeline的方式进行共指检测和消解。</li>
+<li>learning-based (Bengtson and Roth, 2008; Fer- nandes et al., 2012; Durrett and Klein, 2013; Bjo ̈rkelund and Kuhn, 2014)，使用机器学习的方法，通过人工构造大量特征，使用pipeline的方法进行共指检测消解。</li>
+<li>end-to-end neural system (Lee et al., 2017) ，文中考虑所有的窗口文本作为候选的mention，使用端到端的神经网络的方法，消除了传统方法需要人工标注的弊端。</li>
+</ol>
+</li>
+<li><p>本文方法是什么：</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1g177kt3rcxj31hw0n6452.jpg" alt="image-20190318201401328"></p>
+<p>本文提出的端到端的模型结构如图一所示。文中端到端的共指消解分为了以下几个步骤：</p>
+<ul>
+<li><p>Span Representation：模型首先需要考虑的是如何对每个span进行表示，首先使用BiLSTM对句子进行编码 </p>
+<script type="math/tex; mode=display">
+h^{\rightarrow}_t = LSTM^{forward}(h_{t-1}, w_t)</script><script type="math/tex; mode=display">
+h^{\leftarrow}_t = LSTM^{backward}(h_{t-1}, w_t)</script><script type="math/tex; mode=display">
+h_t = [h^{\rightarrow}_t, h^{\leftarrow_t}]</script><p>然后使用head-finding Attention计算不同的词在span中的权重</p>
+<script type="math/tex; mode=display">
+\alpha_t = \bold{v}_\alpha^TFFNN_\alpha(\bold{h}_t)</script><p>这里的FFNN都是前馈神经网络，输出是一个向量。接下来吧span的表示向量<script type="math/tex">s_i​</script>记为：</p>
+<script type="math/tex; mode=display">
+\bold{s_i} = [\bold{h}_{START(i)}, \bold{h}_{END(i)}, \bold{w}_i^{head-att}, \phi(i)]</script></li>
+<li><p>Mention Scoring: 得到<script type="math/tex">span_i​</script>的向量表示<script type="math/tex">s_i​</script>后，我们可以使用</p>
+</li>
+</ul>
+</li>
+<li><p>有什么创新点：</p>
+<ul>
+<li>使用joint learning的方法减少了传统pipeline方法所产生的级联错误。</li>
+<li></li>
+</ul>
+</li>
+<li><p>如何解决motivation中提出的问题：</p>
+</li>
+<li><p>取得什么样的效果：在CoNLL-2012 英文数据集(Based on Ontonotes)上达到了SOTA的效果：单模型F1 67.8% F1，多模型ensemble F1 69.2%。</p>
+</li>
+<li><p>对文章的点评：</p>
+<p>优点：</p>
+<ol>
+<li>文章整体结构简洁清除，引用关系也比较清晰</li>
+<li>结果是SOTA的</li>
+</ol>
+<p>描述不清的部分：</p>
+<ol>
+<li>Model部分有些描述不是很清晰，Span Representation里没有</li>
+<li>任务定义没有描述清楚怎么产生新的候选先行语，因为根据定义，第i个span要么指向第0~(i-1)个先行语，要么就是dummy antecedent，不具备生成新antecedent的条件。</li>
+</ol>
+</li>
+</ul>
 
                 
 
@@ -249,10 +276,10 @@
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2018/09/30/【精彩继续】SMP2018中文人机对话技术评测（ECDT）刷榜公告/" data-toggle="tooltip" data-placement="top" title="【精彩继续】SMP2018中文人机对话技术评测（ECDT）开放刷榜通知">&larr; Previous Post</a>
-                        </li>
                     
+                        <li class="next">
+                            <a href="/2018/11/04/【NLP】Transformer注解翻译（模型篇）/" data-toggle="tooltip" data-placement="top" title="【NLP】Transformer注解翻译（模型篇）">Next Post &rarr;</a>
+                        </li>
                     
                 </ul>
 
@@ -277,7 +304,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text"></span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Usage</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">Init</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">Modify</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.2.1.</span> <span class="toc-nav-text">Deployment</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.2.2.</span> <span class="toc-nav-text">Sidebar settings</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.2.3.</span> <span class="toc-nav-text">Signature Setup</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.2.4.</span> <span class="toc-nav-text">Go to top icon Setup</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.2.5.</span> <span class="toc-nav-text">Post tag</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.2.6.</span> <span class="toc-nav-text">Markdown render</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">Hexo Basics</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Have fun ^_^</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">论文阅读笔记：</span></a></li></ol>
         
         </div>
       </aside>
@@ -297,9 +324,9 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#Hexo" title="Hexo">Hexo</a>
+                          <a class="tag" href="/tags/#Coreference Resolution" title="Coreference Resolution">Coreference Resolution</a>
                         
-                          <a class="tag" href="/tags/#Blog" title="Blog">Blog</a>
+                          <a class="tag" href="/tags/#NLP" title="NLP">NLP</a>
                         
                     </div>
                 </section>
